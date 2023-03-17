@@ -53,7 +53,10 @@ function updateClockface({ days, hours, minutes, seconds }) {
     secondsEl.textContent = addLeadingZero(seconds);
     minutesEl.textContent = addLeadingZero(minutes);
     hoursEl.textContent = addLeadingZero(hours);
-    daysEl.textContent = addLeadingZero(days);
+  if (days > 99) {
+    daysEl.textContent = days;
+  }
+  daysEl.textContent = addLeadingZero(days);
 };
 
 function addLeadingZero(value){
