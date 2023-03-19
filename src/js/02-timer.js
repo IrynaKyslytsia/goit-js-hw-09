@@ -48,7 +48,9 @@ function startTimer() {
     const timeComponents = convertMs(deltaTime);
     updateClockface(timeComponents);
     if (secondsEl.textContent === '00' && minutesEl.textContent === '00' && hoursEl.textContent === '00' && daysEl.textContent === '00') {
+        Report.success('Time is over!');
         clearInterval(intervalId);
+        btnStart.disabled = false;
     }
 };
 
