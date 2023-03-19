@@ -29,8 +29,10 @@ flatpickr(input, options);
 
 function onSelectingValidDate(selectedDates) {
     inputDate = selectedDates.getTime();
-        if(selectedDates < Date.now()) {
+        if(inputDate < Date.now()) {
+            btnStart.disabled = true;
             window.alert("Please choose a date in the future");
+            return;
         }
         btnStart.disabled = false;
 };
