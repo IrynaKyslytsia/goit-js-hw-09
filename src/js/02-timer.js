@@ -1,5 +1,6 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
+import { Report } from 'notiflix/build/notiflix-report-aio';
 
 const input = document.querySelector('#datetime-picker');
 const btnStart = document.querySelector('[data-start]');
@@ -31,7 +32,7 @@ function onSelectingValidDate(selectedDates) {
     inputDate = selectedDates.getTime();
         if(inputDate < Date.now()) {
             btnStart.disabled = true;
-            window.alert("Please choose a date in the future");
+            Report.failure('Please choose a date in the future');
             return;
         }
         btnStart.disabled = false;
